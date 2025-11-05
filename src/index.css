@@ -1,0 +1,30 @@
+/* src/index.css */
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  background-color: #242424;
+}
+
+body {
+  margin: 0; /* On supprime la marge par défaut */
+  /* On supprime 'display: flex' et 'place-items: center' 
+     pour permettre un défilement normal de la page. */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Commence 20px plus bas */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Finit à sa position normale */
+  }
+}
+/* Vous pouvez garder le reste (a, h1, button...) ou le supprimer. 
+   Pour l'instant, laissons-le. */

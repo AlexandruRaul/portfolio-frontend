@@ -1,0 +1,88 @@
+/* src/components/AboutMe.module.css */
+
+/* * Le "Pourquoi" de .aboutContainer :
+ * - 'display: flex' : active le mode "colonnes".
+ * - 'flex-wrap: wrap' : permet aux colonnes de passer l'une 
+ * en dessous de l'autre sur petit écran (responsive).
+ * - 'background-color: #242424' : le fond sombre de base.
+ */
+.aboutContainer {
+  display: flex;
+  flex-wrap: wrap; /* Important pour le responsive */
+  padding: 3rem 2rem; /* Plus d'espace (haut/bas, gauche/droite) */
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* * Le "Pourquoi" des colonnes :
+ * - 'flex: 2' (texte) et 'flex: 1' (compétences) : C'est la magie !
+ * Cela signifie que la colonne de texte doit prendre 2 parts 
+ * de l'espace, et la colonne de compétences 1 part. 
+ * La colonne de texte sera donc 2x plus large.
+ * - 'min-width: 300px' : S'assure qu'en dessous de 300px, 
+ * la colonne "casse" et passe à la ligne (grâce à 'flex-wrap').
+ */
+.textColumn {
+  flex: 2; /* Prend 2/3 de la largeur */
+  min-width: 300px; /* Pour le responsive */
+  padding-right: 2rem; /* Espace entre les colonnes */
+  box-sizing: border-box;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.skillsColumn {
+  flex: 1; /* Prend 1/3 de la largeur */
+  min-width: 300px; /* Pour le responsive */
+  padding-left: 2rem; /* Espace entre les colonnes */
+  box-sizing: border-box;
+  border-left: 1px solid #555; /* Ligne de séparation */
+  animation: fadeIn 0.5s ease-out forwards;
+
+  /* On peut même ajouter un petit délai pour un effet "décalé" */
+  animation-delay: 0.1s;
+}
+
+/* Styles pour le texte */
+.textColumn h2 {
+  font-size: 2.2rem;
+  color: #646cff; /* Couleur accent */
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.textColumn p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* Styles pour la liste de compétences */
+.skillsColumn h3 {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.skillsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skillsList li {
+  font-size: 1rem;
+  background-color: #333; /* Fond pour chaque item */
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  border-left: 4px solid #646cff; /* Accent de couleur */
+}
+
+/* Met en gras le "thème" de la compétence */
+.skillsList li span {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
