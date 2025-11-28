@@ -4,14 +4,24 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
-  background-color: #242424;
+
+  /* Palette "Data" (Clair) */
+  color-scheme: light;
+  color: #212529;
+  background-color: #F8F9FA;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth; /* <--- C'EST CETTE LIGNE QUI FAIT LA MAGIE */
 }
 
 body {
-  margin: 0; /* On supprime la marge par défaut */
-  /* On supprime 'display: flex' et 'place-items: center' 
-     pour permettre un défilement normal de la page. */
+  margin: 0;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -19,12 +29,10 @@ body {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px); /* Commence 20px plus bas */
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0); /* Finit à sa position normale */
+    transform: translateY(0);
   }
 }
-/* Vous pouvez garder le reste (a, h1, button...) ou le supprimer. 
-   Pour l'instant, laissons-le. */

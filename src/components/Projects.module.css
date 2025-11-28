@@ -1,33 +1,24 @@
 /* src/components/Projects.module.css */
 
 .projectsContainer {
-  padding: 3rem 2rem;
-  background-color: #1a1a1a; /* Fond sombre */
+  padding: 4rem 2rem;
+  background-color: #FFFFFF; /* Fond blanc */
   width: 100%;
   box-sizing: border-box;
 }
 
 .sectionTitle {
   font-size: 2.2rem;
-  color: #646cff; /* Couleur accent */
+  color: #0A4ABF; /* NOUVEL accent bleu */
   text-align: center;
   margin-top: 0;
   margin-bottom: 2.5rem;
 }
 
-/* * Le "Pourquoi" de .gridContainer :
- * - 'display: grid' : Active le mode grille CSS.
- * - 'grid-template-columns: repeat(auto-fit, ...)' : 
- * C'est la magie du responsive. Il dit : 
- * "Crée autant de colonnes que possible qui font AU MINIMUM 300px.
- * '1fr' signifie 'partage l'espace restant équitablement'."
- * - 'gap: 2rem' : L'espace entre chaque carte de la grille.
- */
 .gridContainer {
   display: grid;
-  /* La ligne la plus importante pour une grille responsive : */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  max-width: 1200px; /* Limite la largeur max de la grille */
-  margin: 0 auto; /* Centre la grille */
+  max-width: 1200px; 
+  margin: 0 auto;
 }

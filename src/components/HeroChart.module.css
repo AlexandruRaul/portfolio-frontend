@@ -1,0 +1,107 @@
+/* src/components/HeroChart.module.css */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(250, 82, 82, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(250, 82, 82, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(250, 82, 82, 0); }
+}
+
+.wrapper {
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+}
+
+.chartCard {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  width: 320px;
+  height: 280px; /* Un peu plus haut pour le footer */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Espace entre titre et bouton */
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #F1F3F5;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  background-color: #FA5252;
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: pulse 2s infinite;
+}
+
+.title {
+  font-size: 11px;
+  color: #868E96;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* NOUVEAU : Bouton de Switch */
+.switchButton {
+  background-color: #F1F3F5;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.switchButton:hover {
+  background-color: #E9ECEF;
+  color: #0A4ABF;
+}
+
+.chartContainer {
+  flex-grow: 1;
+  width: 100%;
+  min-height: 150px;
+}
+
+.footer {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.totalBadge {
+  background-color: #E7F5FF;
+  color: #0A4ABF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.hint {
+  font-size: 10px;
+  color: #ADB5BD;
+  font-style: italic;
+  margin: 0;
+}

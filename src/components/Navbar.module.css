@@ -5,14 +5,19 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #333;
-  color: white;
+  background-color: #FFFFFF; /* Fond blanc */
+  color: #212529; /* Texte foncé */
+  /* On ajoute une ombre pour la détacher */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+  position: sticky; /* On la "fixe" en haut au scroll */
+  top: 0;
+  z-index: 1000;
 }
 
 .brand {
   font-size: 1.5rem;
   font-weight: bold;
-  color: white;
+  color: #212529; /* Texte foncé */
   text-decoration: none;
 }
 
@@ -28,30 +33,26 @@
 }
 
 .links a {
-  color: white;
+  color: #212529; /* Texte foncé */
   text-decoration: none;
   font-size: 1rem;
-  position: relative; /* Indispensable pour positionner le ::after */
-  padding-bottom: 4px; /* Laisse de la place pour la ligne */
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
 }
 
-.links a:hover {
-  color: #646cff;
-}
-
-/* On crée la ligne (initialement invisible) */
+/* Ligne d'animation avec le NOUVEL accent bleu */
 .links a::after {
-  content: ''; /* Obligatoire pour un pseudo-élément */
-  position: absolute; /* Se positionne par rapport au 'a' */
+  content: '';
+  position: absolute;
   bottom: 0;
   left: 0;
-  width: 0; /* Largeur initiale = 0 (caché) */
+  width: 0;
   height: 2px;
-  background-color: #646cff; /* Couleur accent */
-  transition: width 0.3s ease-out; /* L'animation ! */
+  background-color: #0A4ABF; /* NOUVEL accent bleu */
+  transition: width 0.3s ease-out;
 }
 
-/* Au survol, on fait grandir la ligne à 100% */
 .links a:hover::after {
   width: 100%;
 }

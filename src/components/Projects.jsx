@@ -1,50 +1,53 @@
 // src/components/Projects.jsx
 
 import styles from './Projects.module.css';
-import ProjectCard from './ProjectCard'; // <-- On importe notre "brique" !
+import ProjectCard from './ProjectCard';
+import RevealOnScroll from './RevealOnScroll'; // Assurez-vous d'importer le wrapper
 
-// On définit nos données de projet ici
+// Vos composants visuels
+import QualityChart from './QualityChart';
+import SqlCode from './SqlCode';
+import ArchitectureDiagram from './ArchitectureDiagram';
+
 const projectData = [
   {
     title: "Système d'Analyse Qualité",
-    description: "Mise en place d'un système de collecte de données (tests, tickets) et suivi de KPIs qualité via des dashboards pour piloter l'amélioration produit.",
-    tech: ["Python", "SQL", "RobotFramework", "Dashboards"]
+    DynamicComponent: QualityChart, 
+    description: "Mise en place d'un système de collecte de données (tests, tickets) et suivi de KPIs qualité via des dashboards dynamiques.",
+    tech: ["Python", "SQL", "Recharts", "Data Viz"]
   },
   {
     title: "Refonte ERP (Développement)",
-    description: "Développement et refonte d'un ERP personnalisé en PHP pour optimiser la performance, avec mise en œuvre de nouvelles fonctionnalités.",
-    tech: ["PHP", "SQL", "Javascript", "UX Design"]
+    DynamicComponent: SqlCode, 
+    description: "Développement et refonte d'un ERP personnalisé en PHP. Optimisation des requêtes SQL complexes pour la gestion des stocks.",
+    tech: ["PHP", "SQL", "Javascript", "Architecture"]
   },
   {
-    title: "Portfolio Web React (Ce site !)",
-    description: "Création d'un site portfolio 'from scratch' pour démontrer mes compétences en développement web moderne et en intégration.",
-    tech: ["React", "Javascript", "CSS Modules", "Vite"]
+    title: "Portfolio Full Stack (Ce site !)",
+    DynamicComponent: ArchitectureDiagram, 
+    description: "Architecture moderne découplée : Front-End React hébergé sur Vercel communiquant avec une API Python (FastAPI) sur Render.",
+    tech: ["React", "FastAPI", "Vercel / Render", "CI/CD"]
   }
 ];
-
 
 export default function Projects() {
   return (
     <section className={styles.projectsContainer} id="projets">
       <h2 className={styles.sectionTitle}>Mes Projets</h2>
       
-      {/* * Le "Pourquoi" de .gridContainer :
-       * C'est la grille qui va contenir nos cartes.
-      */}
       <div className={styles.gridContainer}>
         
-        {/* * Le "Pourquoi" de projectData.map() :
-         * On boucle sur nos données. Pour chaque 'project', 
-         * on crée une 'ProjectCard' et on lui passe les
-         * 'props' (title, description, tech).
-        */}
-        {projectData.map((project) => (
-          <ProjectCard 
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            tech={project.tech}
-          />
+        {/* CORRECTION ICI : on ajoute 'index' dans les parenthèses */}
+        {projectData.map((project, index) => (
+          <RevealOnScroll key={project.title} delay={index * 200}>
+            <ProjectCard 
+              title={project.title}
+              imageUrl={project.imageUrl}
+              DynamicComponent={project.DynamicComponent}
+              description={project.description}
+              tech={project.tech}
+            />
+          </RevealOnScroll>
         ))}
 
       </div>

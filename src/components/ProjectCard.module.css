@@ -1,59 +1,91 @@
 /* src/components/ProjectCard.module.css */
 
-/* * Le "Pourquoi" de .card :
- * - C'est le conteneur de notre projet. 
- * - On lui donne un fond, un padding, et un 'border-radius'.
- * - 'transition: ...' crée l'animation de survol fluide.
- */
 .card {
-  background-color: #333;
+  background-color: #F8F9FA;
   border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Ombre subtile */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid #E9ECEF;
+  animation: fadeIn 0.5s ease-out forwards;
   
-  /* On force le flex pour bien placer les éléments */
+  padding: 0;
   display: flex;
   flex-direction: column;
-  animation: fadeIn 0.5s ease-out forwards;
+  overflow: hidden; 
 }
 
-/* * Le "Pourquoi" de :hover :
- * - Quand l'utilisateur passe la souris, on "soulève" la carte 
- * (transform: translateY) et on augmente l'ombre.
- */
+/* L'animation standard au survol */
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* NOUVEAU : La classe qui DÉSACTIVE l'animation pour le graphique */
+.noHoverEffect:hover {
+  transform: none !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05) !important;
+  cursor: default;
+}
+
+.imageContainer {
+  width: 100%;
+  /* Ratio 16:9 */
+  padding-top: 56.25%; 
+  position: relative; /* <--- C'EST CETTE LIGNE QUI EMPÊCHE LE GRAPHIQUE DE FUIR */
+  background-color: #E9ECEF;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Le style pour le graphique dynamique */
+.dynamicWrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0 0 0;
+  background-color: #fff;
+}
+
+.content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .title {
   font-size: 1.5rem;
-  color: #646cff; /* Couleur accent */
+  color: #0A4ABF;
   margin-top: 0;
   margin-bottom: 0.75rem;
 }
 
 .description {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.87);
-  flex-grow: 1; /* Pousse les technos en bas */
+  color: #495057;
+  flex-grow: 1;
   margin-bottom: 1.5rem;
 }
 
-/* Conteneur pour nos "tags" de techno */
 .techContainer {
   display: flex;
-  flex-wrap: wrap; /* Les tags passent à la ligne */
-  gap: 0.5rem; /* Espace entre les tags */
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-/* * Le "Pourquoi" de .techTag :
- * - Ce sont les petites pilules pour les technos (Python, React...)
- */
 .techTag {
-  background-color: #444;
-  color: rgba(255, 255, 255, 0.7);
+  background-color: #E9ECEF;
+  color: #495057;
   font-size: 0.75rem;
   padding: 0.25rem 0.6rem;
   border-radius: 12px;

@@ -1,13 +1,8 @@
 /* src/components/Contact.module.css */
 
-/* * Le "Pourquoi" de .contactContainer :
- * - On le centre, on lui donne une largeur maximale (maxWidth)
- * pour qu'il n'ait pas l'air immense sur grand écran.
- * - 'margin: 0 auto' est la technique classique pour centrer un bloc.
- */
 .contactContainer {
-  padding: 3rem 2rem;
-  background-color: #242424; /* Fond sombre de base */
+  padding: 4rem 2rem;
+  background-color: #F8F9FA; /* Fond gris clair */
   text-align: center;
   width: 100%;
   box-sizing: border-box;
@@ -15,79 +10,61 @@
 
 .title {
   font-size: 2.2rem;
-  color: #646cff; /* Couleur accent */
+  color: #0A4ABF; /* NOUVEL accent bleu */
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
 .subtitle {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.87);
+  color: #495057; /* Gris doux */
   margin-bottom: 2.5rem;
 }
 
-/* * Le "Pourquoi" de .form :
- * - C'est le conteneur de notre formulaire.
- * - On lui donne une largeur maximale pour la lisibilité.
- */
 .form {
   max-width: 600px;
-  margin: 0 auto; /* Centre le formulaire lui-même */
-  text-align: left; /* Aligne les labels à gauche */
+  margin: 0 auto;
+  text-align: left;
 }
 
 .formGroup {
-  margin-bottom: 1.5rem; /* Espace entre chaque champ */
+  margin-bottom: 1.5rem;
 }
 
 .label {
-  display: block; /* Met le label sur sa propre ligne */
+  display: block;
   margin-bottom: 0.5rem;
   font-size: 1rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.95);
+  color: #212529; /* Texte foncé */
 }
 
-/* * Le "Pourquoi" de .input et .textarea :
- * - 'width: 100%' : Fait prendre au champ toute la largeur du formulaire.
- * - 'box-sizing: border-box' : S'assure que le 'padding' ne
- * fait pas déborder le champ.
- * - On leur donne des styles modernes (fond sombre, bordure, etc.)
- */
 .input,
 .textarea {
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
   font-family: inherit;
-  color: rgba(255, 255, 255, 0.95);
-  background-color: #333;
-  border: 1px solid #555;
+  color: #212529; /* Texte foncé */
+  background-color: #FFFFFF; /* Fond blanc */
+  border: 1px solid #CED4DA; /* Bordure gris moyen */
   border-radius: 8px;
-  box-sizing: border-box; /* Très important ! */
+  box-sizing: border-box;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .textarea {
-  resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+  resize: vertical;
 }
 
-/* * Le "Pourquoi" de :focus :
- * - C'est ce qui se passe quand on clique dans le champ.
- * - On change la couleur de la bordure et on ajoute une 
- * lueur ('box-shadow') pour montrer qu'il est actif.
- */
 .input:focus,
 .textarea:focus {
   outline: none;
-  border-color: #646cff;
-  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.3);
+  border-color: #0A4ABF; /* Accent bleu au focus */
+  /* Ombre bleue */
+  box-shadow: 0 0 0 3px rgba(10, 74, 191, 0.25);
 }
 
-/* * Le "Pourquoi" de .submitButton :
- * - On réutilise le style de notre bouton "Hero".
- * - 'width: 100%' : Le bouton prend toute la largeur.
- */
 .submitButton {
   width: 100%;
   border-radius: 8px;
@@ -96,23 +73,21 @@
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  
-  background-color: #646cff; /* Couleur accent */
+  background-color: #0A4ABF; /* NOUVEL accent bleu */
   color: #ffffff;
-  
   cursor: pointer;
   transition: all 0.25s;
   text-decoration: none;
 }
 
 .submitButton:hover {
-  background-color: #535bf2;
+  background-color: #003F8A; /* Bleu foncé au survol */
 }
 
 .statusMessage {
   text-align: center;
   font-size: 1rem;
   font-weight: 500;
-  color: #646cff; /* Couleur accent */
+  color: #0A4ABF; /* NOUVEL accent bleu */
   margin-bottom: 1rem;
 }

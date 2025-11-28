@@ -1,62 +1,125 @@
 /* src/components/Hero.module.css */
 
 .heroContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centre le contenu horizontalement */
-  justify-content: center; /* Centre le contenu verticalement */
-  
-  /* Le '100vh' moins la hauteur de la navbar (ex: 70px) */
-  min-height: calc(100vh - 70px); 
+  min-height: calc(100vh - 70px);
   width: 100%;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 2rem;
-  box-sizing: border-box; /* S'assure que le padding ne dépasse pas */
-  text-align: center;
-  
-  /* Un fond légèrement différent du body */
-  background-color: #1a1a1a; 
+  box-sizing: border-box;
+  overflow: hidden; /* Important pour que rien ne dépasse */
+}
+
+/* Nouveau wrapper pour gérer la largeur max */
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ecarte le texte et l'image */
+  max-width: 1100px;
+  width: 100%;
+  gap: 4rem; /* Espace entre les deux colonnes */
+}
+
+/* --- COLONNE GAUCHE --- */
+.leftColumn {
+  flex: 1; /* Prend la moitié de la place */
+  text-align: left; /* Texte aligné à gauche maintenant ! */
+  min-width: 300px;
 }
 
 .name {
-  font-size: 3.5rem; /* 56px */
-  font-weight: 700;
+  font-size: 3.5rem;
+  font-weight: 800; /* Plus gras */
   margin: 0;
   line-height: 1.1;
-  color: rgba(255, 255, 255, 0.95);
+  color: #212529;
 }
 
 .subtitle {
-  font-size: 1.75rem; /* 28px */
-  font-weight: 500;
-  margin: 0.5rem 0;
-  color: #646cff; /* La couleur "accent" de Vite */
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  color: #0A4ABF;
+  min-height: 2.5rem;
+  display: block; /* Important pour l'alignement */
 }
 
 .description {
-  font-size: 1.125rem; /* 18px */
-  max-width: 650px; /* Limite la largeur pour la lisibilité */
-  margin: 1rem 0 2rem 0; /* Espace avant le bouton */
-  color: rgba(255, 255, 255, 0.87);
+  font-size: 1.125rem;
+  color: #495057;
+  margin-bottom: 2rem;
+  max-width: 500px; /* Limite la largeur du texte pour la lecture */
+  line-height: 1.6;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem; /* Espace entre les boutons */
 }
 
 .ctaButton {
-  /* On imite le style du bouton par défaut de Vite */
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.8em 1.5em;
   font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  
-  background-color: #646cff; /* Couleur accent */
+  font-weight: 600;
+  background-color: #0A4ABF;
   color: #ffffff;
-  
   cursor: pointer;
   transition: all 0.25s;
   text-decoration: none;
 }
 
 .ctaButton:hover {
-  background-color: #535bf2; /* Un peu plus foncé au survol */
-  border-color: #646cff;
+  background-color: #003F8A;
+  transform: translateY(-2px); /* Petit effet de saut */
+}
+
+/* Bouton secondaire (contour seulement) */
+.secondaryButton {
+  border-radius: 8px;
+  border: 2px solid #E9ECEF;
+  padding: 0.8em 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  background-color: transparent;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+
+.secondaryButton:hover {
+  border-color: #0A4ABF;
+  color: #0A4ABF;
+}
+
+/* --- COLONNE DROITE --- */
+.rightColumn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- RESPONSIVE (Mobile) --- */
+@media (max-width: 900px) {
+  .contentWrapper {
+    flex-direction: column-reverse; /* L'image passe au dessus ou en dessous */
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .leftColumn {
+    text-align: center; /* Sur mobile, on re-centre le texte */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttonGroup {
+    justify-content: center;
+  }
 }

@@ -1,13 +1,11 @@
 // src/components/AboutMe.jsx
-
-import styles from './AboutMe.module.css'; // On importe notre style
+import styles from './AboutMe.module.css';
 
 export default function AboutMe() {
   return (
-    // 'aboutContainer' : Le conteneur principal de la section
+    // AJOUT DE L'ID ICI : id="about"
     <section className={styles.aboutContainer} id="about">
       
-      {/* Colonne de gauche : Votre histoire */}
       <div className={styles.textColumn}>
         <h2>À Propos de Moi</h2>
         <p>
@@ -25,13 +23,11 @@ export default function AboutMe() {
         </p>
       </div>
 
-      {/* Colonne de droite : Vos compétences */}
       <div className={styles.skillsColumn}>
         <h3>Compétences Techniques Clés</h3>
         <ul className={styles.skillsList}>
-          {/* J'ai regroupé vos compétences par thème */}
-          <li><span>Back-End :</span> Python, Java, PHP, R </li>
-          <li><span>Front-End :</span> CSS, Javascript, Angular, Node</li>
+          <li><span>Back-End :</span> Python, Java, PHP, R</li>
+          <li><span>Front-End :</span> CSS, Javascript, Angular</li>
           <li><span>Base de données :</span> SQL, PostgreSQL</li>
           <li><span>IA / Data :</span> TensorFlow, Scikit-learn</li>
           <li><span>Testing :</span> RobotFramework, Postman</li>

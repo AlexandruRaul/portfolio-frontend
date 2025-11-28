@@ -1,44 +1,33 @@
 /* src/components/Footer.module.css */
 
-/* * Le "Pourquoi" de .footerContainer :
- * - Un fond très sombre (#1a1a1a) pour le "clore" visuellement.
- * - 'text-align: center' pour centrer le copyright et les liens.
- * - 'padding' pour lui donner de l'air.
- * - 'border-top' pour le séparer visuellement de la section Contact.
- */
 .footerContainer {
   padding: 2rem;
-  background-color: #1a1a1a; /* Fond très sombre */
+  background-color: #FFFFFF; /* Fond blanc */
   text-align: center;
-  color: rgba(255, 255, 255, 0.7);
-  border-top: 1px solid #333; /* Ligne de séparation */
+  color: #495057; /* Gris doux */
+  border-top: 1px solid #DEE2E6; /* Ligne de séparation */
   width: 100%;
   box-sizing: border-box;
 }
 
 .socialLinks {
-  margin-bottom: 1rem; /* Espace entre les liens et le copyright */
+  margin-bottom: 1rem;
 }
 
-/* * Le "Pourquoi" de .link :
- * - On donne aux liens un style clair et moderne.
- * - 'margin' pour les espacer.
- * - 'transition' pour un effet de survol doux.
- */
 .link {
   font-size: 1rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.87);
+  color: #212529; /* Texte foncé */
   text-decoration: none;
   margin: 0 0.75rem;
   transition: color 0.2s;
 }
 
 .link:hover {
-  color: #646cff; /* Couleur accent au survol */
+  color: #0A4ABF; /* NOUVEL accent bleu */
 }
 
 .copyright {
-  font-size: 0.875rem; /* 14px */
-  color: rgba(255, 255, 255, 0.5); /* Plus discret */
+  font-size: 0.875rem;
+  color: #6C757D; /* Gris plus clair */
 }
