@@ -26,18 +26,15 @@ export default function HeroChart() {
     const handleGlobalClick = (e) => {
       const target = e.target;
       
-      // 1. On regarde si c'est un lien spécifique (boutons du Hero)
       const link = target.closest('a');
       const href = link ? link.getAttribute('href') : null;
 
-      // 2. NOUVEAU : On regarde si on est DANS une section spécifique
       const insideProjects = target.closest('#projets');
       const insideContact = target.closest('#contact');
 
-      // On ignore les clics sur le switch du graphique
+      // On ignore le switch du graphique
       if (target.closest(`.${styles.switchButton}`)) return;
 
-      // Détermination de la catégorie
       let category = 'Autre';
 
       if (href === '#projets' || insideProjects) {
@@ -46,7 +43,6 @@ export default function HeroChart() {
         category = 'Contact';
       }
 
-      // Mise à jour des données
       countsRef.current[category] += 1;
 
       setClickData(prevData => {

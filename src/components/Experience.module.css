@@ -1,0 +1,21 @@
+/* src/components/Experience.module.css */
+
+.experienceContainer {
+  padding: 4rem 2rem;
+  background-color: #F8F9FA; /* Fond gris clair */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #0A4ABF;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+.listContainer {
+  max-width: 900px; /* On limite la largeur pour la lisibilité */
+  margin: 0 auto; /* Centré */
+}

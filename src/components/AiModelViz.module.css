@@ -1,0 +1,107 @@
+/* src/components/AiModelViz.module.css */
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  background: #f8fafc;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden; /* Empêche tout débordement global */
+}
+
+/* --- ZONE DE GAUCHE (CONTRÔLES) --- */
+.controls {
+  flex: 0 0 40%; /* Prend exactement 40% de la largeur */
+  padding: 1rem; 
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centre verticalement les sliders */
+  background: #f1f5f9;
+}
+
+.title {
+  margin: 0 0 0.2rem 0;
+  font-size: 0.9rem; /* Titre plus petit */
+  font-weight: 700;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  margin: 0 0 1rem 0;
+  font-size: 0.7rem;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+.inputGroup {
+  margin-bottom: 0.8rem; /* Moins d'espace entre les sliders */
+  width: 100%;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+  font-size: 0.75rem; /* Texte plus compact */
+  color: #475569;
+}
+
+.labelRow span {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.slider {
+  width: 100%;
+  cursor: pointer;
+  accent-color: #2563eb;
+  height: 4px;
+  display: block; /* Évite les décalages inline */
+}
+
+/* --- ZONE DE DROITE (VISUEL) --- */
+.visuals {
+  flex: 1; /* Prend le reste de la largeur (60%) */
+  padding: 0.5rem 1rem; /* Padding réduit pour laisser place au graphe */
+  display: flex;
+  flex-direction: column;
+  background: white;
+  position: relative;
+}
+
+/* Score compacté en haut */
+.predictionBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.scoreLarge {
+  font-size: 1.8rem; /* Un peu moins géant qu'avant */
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* LE GRAPHIQUE : C'est ici qu'on force la taille */
+.chartWrapper {
+  width: 100%;
+  flex-grow: 1; /* Le graphique grandit pour remplir tout l'espace vide vertical */
+  min-height: 0; /* Important pour que flexbox ne déborde pas */
+  display: flex;
+  flex-direction: column;
+}

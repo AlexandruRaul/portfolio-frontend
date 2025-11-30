@@ -3,36 +3,51 @@
 import MyNavbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutMe from './components/AboutMe';
+import Experience from './components/Experience'; 
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-
-// 1. On importe notre Wrapper magique
 import RevealOnScroll from './components/RevealOnScroll'; 
+import BackToTop from './components/BackToTop'; 
+import SqlTerminal from './components/SqlTerminal'; // <--- NOUVEL IMPORT
 
 function App() {
   return (
     <>
       <MyNavbar />
       
-      {/* Le Hero est tout en haut, pas besoin d'attendre le scroll, on le laisse tel quel */}
-      <Hero /> 
+      {/* Le Hero */}
+      <Hero />
 
-      {/* 2. On emballe les autres sections */}
-      
-      <RevealOnScroll delay={200}> {/* Petit délai de 200ms pour le style */}
+      {/* Section À Propos */}
+      <RevealOnScroll delay={200}>
         <AboutMe />
       </RevealOnScroll>
 
+      {/* Section Expérience */}
+      <RevealOnScroll>
+        <Experience />
+      </RevealOnScroll>
+
+      {/* Section Projets */}
       <RevealOnScroll>
         <Projects />
       </RevealOnScroll>
 
+      {/* NOUVELLE SECTION : Terminal SQL Interactif */}
+      <RevealOnScroll>
+        <SqlTerminal />
+      </RevealOnScroll>
+
+      {/* Section Contact */}
       <RevealOnScroll>
         <Contact />
       </RevealOnScroll>
 
       <Footer />
+      
+      {/* Bouton retour en haut */}
+      <BackToTop />
     </>
   )
 }

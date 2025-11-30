@@ -1,5 +1,3 @@
-/* src/components/HeroChart.module.css */
-
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -21,7 +19,7 @@
   border-radius: 16px;
   padding: 20px;
   width: 320px;
-  height: 280px; /* Un peu plus haut pour le footer */
+  height: 280px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
@@ -31,7 +29,7 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Espace entre titre et bouton */
+  justify-content: space-between;
   margin-bottom: 15px;
   padding-bottom: 10px;
   border-bottom: 1px solid #F1F3F5;
@@ -49,6 +47,7 @@
   border-radius: 50%;
   margin-right: 8px;
   animation: pulse 2s infinite;
+  display: inline-block;
 }
 
 .title {
@@ -59,7 +58,6 @@
   letter-spacing: 1px;
 }
 
-/* NOUVEAU : Bouton de Switch */
 .switchButton {
   background-color: #F1F3F5;
   border: none;

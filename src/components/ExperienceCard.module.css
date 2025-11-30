@@ -1,0 +1,80 @@
+/* src/components/ExperienceCard.module.css */
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Même ombre que Projets */
+  border: 1px solid #E9ECEF;
+  padding: 2rem;
+  margin-bottom: 2rem; /* Espace entre les cartes */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap; /* Pour le mobile */
+  gap: 1rem;
+}
+
+.role {
+  font-size: 1.5rem;
+  color: #0A4ABF; /* Votre bleu signature */
+  margin: 0 0 0.25rem 0;
+  font-weight: 700;
+}
+
+.company {
+  font-size: 1.1rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.dateBadge {
+  background-color: #E7F5FF; /* Bleu très clair */
+  color: #0A4ABF;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.description {
+  font-style: italic;
+  color: #6C757D;
+  margin-bottom: 1rem;
+}
+
+.taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.taskList li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #212529;
+  line-height: 1.6;
+}
+
+/* Les puces personnalisées (petits carrés bleus) */
+.taskList li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  background-color: #0A4ABF;
+  border-radius: 2px;
+}

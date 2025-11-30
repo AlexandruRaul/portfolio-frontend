@@ -1,19 +1,28 @@
 /* src/components/AboutMe.module.css */
 
-.aboutContainer {
-  display: flex;
-  flex-wrap: wrap; 
-  padding: 4rem 2rem; /* Plus d'espace */
+/* 1. La Section Externe : Prend toute la largeur + Fond de couleur */
+.aboutSection {
+  width: 100%;
+  padding: 4rem 2rem;
   background-color: #F8F9FA; /* Fond gris clair */
   color: #212529;
-  width: 100%;
   box-sizing: border-box;
+  /* On retire le display: flex d'ici */
+}
+
+/* 2. Le Conteneur Interne : Limite la largeur et centre le contenu */
+.contentContainer {
+  display: flex;
+  flex-wrap: wrap; 
+  max-width: 1100px; /* <--- LA CLÉ : On limite la largeur comme pour le Hero */
+  margin: 0 auto;    /* <--- LA CLÉ : On centre le bloc au milieu de la page */
+  width: 100%;
 }
 
 .textColumn {
   flex: 2; 
   min-width: 300px;
-  padding-right: 2rem;
+  padding-right: 4rem; /* Un peu plus d'espace entre le texte et les skills */
   box-sizing: border-box;
   animation: fadeIn 0.5s ease-out forwards;
 }
@@ -23,14 +32,28 @@
   min-width: 300px;
   padding-left: 2rem;
   box-sizing: border-box;
-  border-left: 1px solid #DEE2E6; /* Bordure gris clair */
+  border-left: 1px solid #DEE2E6;
   animation: fadeIn 0.5s ease-out forwards;
   animation-delay: 0.1s;
 }
 
+/* Responsive : Sur mobile, on enlève la bordure et on ajuste les paddings */
+@media (max-width: 768px) {
+  .textColumn {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  .skillsColumn {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid #DEE2E6;
+    padding-top: 2rem;
+  }
+}
+
 .textColumn h2 {
   font-size: 2.2rem;
-  color: #0A4ABF; /* NOUVEL accent bleu */
+  color: #0A4ABF;
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
@@ -39,7 +62,7 @@
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 1rem;
-  color: #495057; /* Texte gris doux */
+  color: #495057;
 }
 
 .skillsColumn h3 {
@@ -57,12 +80,12 @@
 
 .skillsList li {
   font-size: 1rem;
-  background-color: #FFFFFF; /* Cartes de compétence blanches */
+  background-color: #FFFFFF;
   padding: 0.75rem 1rem;
   margin-bottom: 0.5rem;
   border-radius: 6px;
-  border-left: 4px solid #0A4ABF; /* NOUVEL accent bleu */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Ombre subtile */
+  border-left: 4px solid #0A4ABF;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .skillsList li span {
