@@ -1,21 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FaArrowUp } from 'react-icons/fa'; // Assure-toi d'avoir installé react-icons
+import { FaArrowUp } from 'react-icons/fa';
 
 export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // 1. GESTION DU SCROLL AU CHARGEMENT (Règle le bug du site qui démarre en bas)
-  useEffect(() => {
-    // Force le navigateur à remonter tout en haut immédiatement
-    window.scrollTo(0, 0);
-    
-    // Nettoie l'URL si elle contient un #contact (pour éviter que le navigateur ne redescende)
-    if (window.location.hash) {
-      window.history.replaceState(null, null, ' ');
-    }
-  }, []);
-
-  // 2. GESTION DE L'AFFICHAGE DU BOUTON
+  // GESTION DE L'AFFICHAGE DU BOUTON (Scroll > 300px)
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 300) {
@@ -29,7 +18,6 @@ export default function BackToTop() {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  // Fonction pour remonter
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -46,7 +34,7 @@ export default function BackToTop() {
             position: 'fixed',
             bottom: '30px',
             right: '30px',
-            backgroundColor: '#2563eb', // Le même bleu que ta Navbar et tes liens
+            backgroundColor: '#2563eb',
             color: 'white',
             border: 'none',
             borderRadius: '50%',
@@ -60,19 +48,20 @@ export default function BackToTop() {
             justifyContent: 'center',
             fontSize: '20px',
             transition: 'all 0.3s ease',
-            opacity: isVisible ? 1 : 0, // Petite animation d'apparition
+            // On gère l'animation ici plutôt qu'avec opacity pour éviter les clics fantômes
+            opacity: isVisible ? 1 : 0, 
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            pointerEvents: isVisible ? 'auto' : 'none', // Important : empêche de cliquer quand invisible
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'scale(1.1)';
-            e.currentTarget.style.backgroundColor = '#1d4ed8'; // Bleu plus foncé au survol
+            e.currentTarget.style.backgroundColor = '#1d4ed8';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'scale(1)';
             e.currentTarget.style.backgroundColor = '#2563eb';
           }}
           title="Retour en haut"
-          aria-label="Retour en haut de page"
         >
           <FaArrowUp />
         </button>

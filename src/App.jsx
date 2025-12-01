@@ -9,12 +9,13 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import RevealOnScroll from './components/RevealOnScroll'; 
 import BackToTop from './components/BackToTop'; 
+import ScrollToTop from './components/ScrollToTop';
 import SqlTerminal from './components/SqlTerminal'; // <--- NOUVEL IMPORT
 
 function App() {
   return (
     <>
-      <BackToTop />
+      <ScrollToTop />
       <MyNavbar />
       
       {/* Le Hero */}

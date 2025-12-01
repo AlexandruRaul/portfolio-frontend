@@ -77,6 +77,8 @@
   background-color: transparent;
   border: 1px solid #d1d5db;
   color: #374151;
+  align-content: center;
+  align-items: center;
 }
 
 .ctaButton:hover, .secondaryButton:hover {
