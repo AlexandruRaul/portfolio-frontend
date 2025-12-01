@@ -14,6 +14,7 @@ import SqlTerminal from './components/SqlTerminal'; // <--- NOUVEL IMPORT
 function App() {
   return (
     <>
+      <BackToTop />
       <MyNavbar />
       
       {/* Le Hero */}

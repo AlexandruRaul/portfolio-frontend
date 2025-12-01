@@ -1,58 +1,91 @@
-/* src/components/Navbar.module.css */
-
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #FFFFFF; /* Fond blanc */
-  color: #212529; /* Texte foncé */
-  /* On ajoute une ombre pour la détacher */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
-  position: sticky; /* On la "fixe" en haut au scroll */
-  top: 0;
-  z-index: 1000;
+  height: 100%;
 }
 
 .brand {
   font-size: 1.5rem;
-  font-weight: bold;
-  color: #212529; /* Texte foncé */
+  font-weight: 800;
+  color: #2563eb;
   text-decoration: none;
+  z-index: 1001; /* Reste au-dessus du menu mobile */
 }
 
 .links {
   display: flex;
+  gap: 2rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.links li {
-  margin-left: 1.5rem;
-}
-
 .links a {
-  color: #212529; /* Texte foncé */
   text-decoration: none;
-  font-size: 1rem;
+  color: #4b5563;
   font-weight: 500;
-  position: relative;
-  padding-bottom: 4px;
+  transition: color 0.3s ease;
 }
 
-/* Ligne d'animation avec le NOUVEL accent bleu */
-.links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #0A4ABF; /* NOUVEL accent bleu */
-  transition: width 0.3s ease-out;
+.links a:hover {
+  color: #2563eb;
 }
 
-.links a:hover::after {
-  width: 100%;
+/* Par défaut (PC), le burger est caché */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #1e293b;
+  z-index: 1001;
+}
+
+/* --- VERSION MOBILE --- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* On affiche le bouton burger */
+  }
+
+  .links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Caché hors de l'écran (à droite) */
+    width: 75%;   /* Largeur du menu */
+    height: 100vh;
+    background-color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out; /* Animation fluide */
+  }
+
+  /* Quand on clique, cette classe s'ajoute et le menu glisse */
+  .links.active {
+    right: 0; 
+  }
+
+  .links a {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
 }
